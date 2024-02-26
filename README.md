@@ -72,4 +72,3 @@ example: PLATFORM=android TEST_ENV=sauce bundle exec cucumber
 - Pay attention to the output of `appium-doctor`; it provides crucial information about missing dependencies or configurations.
 - Make sure your device emulator/simulator is set up and running before executing tests.
 - Regularly update your dependencies to keep up with new versions of Appium and other tools.
-```
