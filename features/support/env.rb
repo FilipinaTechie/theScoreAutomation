@@ -1,12 +1,14 @@
 require 'appium_lib'
 
-# #Load selectors based on platform
-# case ENV['PLATFORM']
-# when 'android'
-#   require '../android_obj_repo'
-# else
-#   raise "Unsupported platform: #{ENV['PLATFORM']}"
-# end
+#Load selectors based on platform
+case ENV['PLATFORM']
+when 'android'
+  require '../android_obj_repo'
+when 'ios'
+  require '../android_obj_repo'
+else
+  raise "Unsupported platform: #{ENV['PLATFORM']}"
+end
 
 Before do
   if ENV['TEST_ENV'] == 'sauce'
@@ -22,8 +24,8 @@ Before do
         'sauce:options' => {
           'appium_version' => '2.0.0',
           'automationVersion' => '3.0.0',
-          'username' => 'oauth-cbbersamin-f2f15',
-          'accessKey' => '7fa1651e-e1b0-4208-a37b-dfa4464a7335',
+          'username' => ENV['SAUCE_NAME'],
+          'accessKey' => ENV['SAUCE_KEY'],
           'name' => 'Saucelab',
           'deviceOrientation' => 'PORTRAIT'
         }
@@ -33,23 +35,9 @@ Before do
       }
     }
   else
-    # # Corrected local configuration
-    # appium_txt = File.join(Dir.pwd, 'appium.txt')
-    # opts = Appium.load_appium_txt(file: appium_txt, verbose: true)
-    opts = {
-      caps: {
-        "platformName" => "Android",
-        "appium:automationName" => "UiAutomator2",
-        "appium:platformVersion" => "14",
-        "appium:deviceName" => "Pixel 6",
-        "appium:app" => "/Users/davidtorquiano/Downloads/com.fivemobile.thescore.apk",
-        "appium:noReset" => false,
-        "appium:newCommandTimeout" => 3600,
-      },
-      appium_lib: {
-        server_url: 'http://192.168.1.78:4723/'
-      }
-    }
+    # Loads appium.txt file for local run
+    appium_txt = File.join(Dir.pwd, 'appium.txt')
+    opts = Appium.load_appium_txt(file: appium_txt, verbose: true)
   end
 
   $driver = Appium::Driver.new(opts, true)
