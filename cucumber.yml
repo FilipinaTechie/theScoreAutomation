@@ -1,0 +1,13 @@
+## cucumber.yml
+
+# Define a default profile
+default: --format pretty --color --strict --publish-quiet
+
+# Example profile for running tests on Sauce Labs with verbose logging
+saucelabs: --format pretty --color --strict --tags @saucelabs
+
+# Profile for rerunning failed tests
+rerun: --format rerun --out rerun.txt --strict
+
+# Profile for generating a report
+report: --format json --out report.json

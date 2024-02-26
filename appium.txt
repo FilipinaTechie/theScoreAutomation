@@ -1,0 +1,9 @@
+[appium]
+platformName = "Android"
+appiumVersion = "2"
+deviceName = "Pixel 6"
+platformVersion = "14"
+app = "/Users/davidtorquiano/Downloads/com.fivemobile.thescore.apk"
+name = "Local Test Run"
+automationName = "UiAutomator2"
+server_url = "http://localhost:4723/wd/hub"
