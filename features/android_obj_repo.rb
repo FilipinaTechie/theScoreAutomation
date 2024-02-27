@@ -5,6 +5,7 @@ module OR
   SCORE_WELCOME_TXT = 'com.fivemobile.thescore:id/txt_welcome'.freeze
   SCORE_TXT_APP_EXP = 'com.fivemobile.thescore:id/txt_app_exp'.freeze
   SCORE_TERMS_LINK = 'com.fivemobile.thescore:id/txt_terms'.freeze
+  ACCEPT_TERMS = 'com.fivemobile.thescore:id/accept_button'.freeze
 
   # Choose Your Favorite Screen
   CONTINUE_BTN = 'com.fivemobile.thescore:id/btn_primary'.freeze

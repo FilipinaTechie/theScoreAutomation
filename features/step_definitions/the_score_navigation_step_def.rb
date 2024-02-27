@@ -1,12 +1,7 @@
+require_relative 'page_routes'
 
 Given('I navigate to favorites') do
-  splash_page.tap_get_started_btn
-  splash_page.tap_continue_btn
-  splash_page.tap_disallow_location_btn
-  reusable_func.choose_an_option('Dallas Cowboys')
-  splash_page.tap_continue_btn
-  splash_page.tap_get_started_btn
-  splash_page.tap_allow_notification_permission
+  navigate_to_favorites('Golden State Warriors')
 end
 
 When('I tap on the search field') do

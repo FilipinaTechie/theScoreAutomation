@@ -1,5 +1,7 @@
-# Require your custom helper file
+# Require custom helper file
 require_relative 'screen_helper'
+require_relative '../step_definitions/page_routes'
 
-# Extend World with your module
+# Extend world with module
 World(ScreenHelper)
+World(PageRoutes)

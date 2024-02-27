@@ -3,9 +3,9 @@ require 'appium_lib'
 #Load selectors based on platform
 case ENV['PLATFORM']
 when 'android'
-  require '../android_obj_repo'
+  require_relative '../android_obj_repo'
 when 'ios'
-  require '../android_obj_repo'
+  require_relative '../ios_obj_repo'
 else
   raise "Unsupported platform: #{ENV['PLATFORM']}"
 end
@@ -20,13 +20,14 @@ Before do
         "appium:deviceName" => "Android GoogleAPI Emulator",
         "appium:app" => "storage:filename=com.fivemobile.thescore.apk",
         "appium:noReset" => false,
-        "appium:newCommandTimeout" => 3600,
+        "appium:newCommandTimeout" => 90,
         'sauce:options' => {
           'appium_version' => '2.0.0',
           'automationVersion' => '3.0.0',
           'username' => ENV['SAUCE_NAME'],
           'accessKey' => ENV['SAUCE_KEY'],
-          'name' => 'Saucelab',
+          'name' => ENV['TEST_NAME'],
+          'build' => ENV['TEST_BUILD'],
           'deviceOrientation' => 'PORTRAIT'
         }
       },

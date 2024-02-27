@@ -1,4 +1,4 @@
-Feature: Verify navigation and information for League, Team, or Player screens
+Feature: Verify navigation and information for League and Team
 
   As a user of theScore app
   I want to navigate to specific screen for leagues, teams, or players
@@ -11,13 +11,11 @@ Feature: Verify navigation and information for League, Team, or Player screens
     When I tap on the search field
     When I search for "<Name>"
     Then I should see the "<Name>" screen displayed
-
     When I tap on the "<SubTab>" sub-tab
     When I perform back navigation
     Then I should be returned to the previous page correctly
 
     Examples:
-      | Type      | Name           | SubTab         |
-      | LEAGUE    | Dallas Cowboys | TEAM STATS     |
-#      | TEAMS     | Liverpool FC   | Stats          |
-#      | PLAYERS   | Lionel Messi   | Career Stats   |
+      | Type      | Name                 | SubTab         |
+      | LEAGUE    | Dallas Cowboys       | TEAM STATS     |
+      | TEAMS     | Liverpool FC         | TEAM STATS     |
